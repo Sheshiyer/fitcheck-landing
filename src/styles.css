@@ -165,12 +165,11 @@ section { padding-block: var(--space-9); }
   padding-block: var(--space-3);
 }
 .brandmark {
-  font-weight: var(--weight-black);
-  font-size: var(--text-lg);
-  letter-spacing: var(--tracking-tight);
-  color: var(--color-on-dark);
+  display: inline-flex;
+  align-items: center;
   text-decoration: none;
 }
+.brandmark svg { height: 30px; width: auto; display: block; }
 .brandmark .dot { color: var(--color-action); }
 .topbar-cta { font-size: var(--text-sm); padding: var(--space-2) var(--space-4); }
 

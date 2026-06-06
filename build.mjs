@@ -7,7 +7,7 @@
 // Aesthetic: Modern Minimalism · Sophisticated Elegance · Static Refinement.
 // Voice: direct, confident, pragmatic, founder-to-founder. Outcomes first.
 
-import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
+import { readFileSync, writeFileSync, mkdirSync, cpSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, resolve } from 'node:path';
 
@@ -19,6 +19,7 @@ const read = (rel) => readFileSync(resolve(__dirname, rel), 'utf8');
 const BRAND_TOKENS = read('./shared/brand-tokens.css'); // brand tokens (vendored into this repo)
 const STYLES = read('./src/styles.css');
 const LEAD_JS = read('./src/lead-capture.js');
+const LOGO_DARK = read('./assets/logo-dark.svg'); // inline header logo (dark lockup)
 
 // ---- Grounded copy (mirrors content/copy.md; no invented claims) -----------
 const BRAND = 'Fitcheck';
@@ -377,7 +378,7 @@ function topbar() {
   return `
   <header class="topbar">
     <div class="container">
-      <a class="brandmark" href="#hero">${esc(BRAND)}<span class="dot">.</span></a>
+      <a class="brandmark" href="#hero" aria-label="${esc(BRAND)} — home">${LOGO_DARK}</a>
       <a class="btn btn-primary topbar-cta" href="#cta">Reserve your launch</a>
     </div>
   </header>`;
@@ -415,6 +416,18 @@ export function buildLanding() {
   <meta name="description" content="${esc(HERO.subhead)}" />
   <meta name="color-scheme" content="dark light" />
   <meta name="theme-color" content="#1A1A2E" />
+  <link rel="icon" href="/assets/mark.svg" type="image/svg+xml" />
+  <link rel="icon" href="/assets/favicon-32.png" sizes="32x32" type="image/png" />
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="${esc(BRAND)} — ${esc(TAGLINE)}" />
+  <meta property="og:description" content="${esc(HERO.subhead)}" />
+  <meta property="og:image" content="https://fitcheck-landing-gamma.vercel.app/assets/og.png" />
+  <meta property="og:url" content="https://fitcheck-landing-gamma.vercel.app/" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="${esc(BRAND)} — ${esc(TAGLINE)}" />
+  <meta name="twitter:description" content="${esc(HERO.subhead)}" />
+  <meta name="twitter:image" content="https://fitcheck-landing-gamma.vercel.app/assets/og.png" />
   <style>
 /* ---- shared/brand-tokens.css (inlined) ---- */
 ${BRAND_TOKENS}
@@ -447,5 +460,6 @@ if (isMain) {
   mkdirSync(outDir, { recursive: true });
   const outFile = resolve(outDir, 'index.html');
   writeFileSync(outFile, html, 'utf8');
+  cpSync(resolve(__dirname, 'assets'), resolve(outDir, 'assets'), { recursive: true }); // logo · favicons · og.png → dist/assets/
   console.log(`[build] wrote ${outFile} (${html.length.toLocaleString()} bytes)`);
 }
