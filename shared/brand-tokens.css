@@ -1,0 +1,96 @@
+/* ============================================================================
+   Fitcheck — Brand Design Tokens (SHARED SOURCE OF TRUTH)
+   Derived from the Fitcheck brand-spec. Inlined into the landing build so the
+   page is self-contained and the palette ships in the output.
+
+   Brand: Fitcheck — done-for-you AI virtual try-on launch for Shopify fashion.
+   Voice: direct, confident, pragmatic, founder-to-founder. Outcomes first.
+   Aesthetic: Modern Minimalism — Sophisticated Elegance, Static Refinement.
+   ========================================================================== */
+
+:root {
+  /* ---- Palette (exact brand hexes) ------------------------------------- */
+  --color-action: #FF6B35;        /* energetic orange — action / CTA       */
+  --color-navy: #1A1A2E;          /* deep navy — background / trust         */
+  --color-tech: #16213E;          /* dark blue — tech credibility           */
+
+  /* Surfaces & text derived from the brand system */
+  --color-surface: #F7F7FB;       /* near-white light surface               */
+  --color-surface-raised: #FFFFFF;
+  --color-ink: #1A1A2E;           /* navy used as body text on light        */
+  --color-ink-soft: #44465F;      /* muted navy for secondary copy          */
+  --color-on-dark: #F7F7FB;       /* near-white text on dark surfaces       */
+  --color-on-dark-soft: #B9BCD0;  /* muted text on dark surfaces            */
+  --color-border: #E2E2EC;        /* hairline divider on light              */
+  --color-border-dark: #2A2C47;   /* hairline divider on dark               */
+
+  /* Action states */
+  --color-action-hover: #E85A26;
+  --color-action-ink: #1A1A2E;    /* readable text sitting on orange        */
+  --color-action-on-light: #C2410C; /* darker burnt-orange for SMALL TEXT on light surfaces — clears WCAG AA 4.5:1 (the bright #FF6B35 is AA-fine on navy + as a CTA fill, but ~2.6:1 as small text on near-white) */
+
+  /* Focus ring (accessibility) */
+  --color-focus: #FF6B35;
+
+  /* ---- Typography (zero-dependency system sans stack) ------------------ */
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+               Helvetica, Arial, sans-serif;
+  --font-heading: var(--font-sans);
+
+  /* Modular type scale (1.250 — major third), clamped & fluid */
+  --text-xs:   0.8125rem;                              /* 13px  */
+  --text-sm:   0.9375rem;                              /* 15px  */
+  --text-base: 1rem;                                   /* 16px  */
+  --text-lg:   1.125rem;                               /* 18px  */
+  --text-xl:   clamp(1.25rem, 1.05rem + 1vw, 1.5rem);
+  --text-2xl:  clamp(1.5rem, 1.2rem + 1.6vw, 2rem);
+  --text-3xl:  clamp(1.9rem, 1.4rem + 2.6vw, 2.75rem);
+  --text-4xl:  clamp(2.4rem, 1.6rem + 4vw, 3.75rem);
+
+  --leading-tight: 1.1;
+  --leading-snug: 1.25;
+  --leading-normal: 1.6;
+
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+  --weight-black: 800;
+
+  --tracking-tight: -0.02em;
+  --tracking-normal: 0;
+  --tracking-wide: 0.04em;
+
+  /* ---- Spacing scale (8px base) ---------------------------------------- */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4rem;
+  --space-9: 6rem;
+  --space-10: 8rem;
+
+  /* ---- Radii, borders, shadows (restrained) ---------------------------- */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-pill: 999px;
+
+  --border-hairline: 1px solid var(--color-border);
+
+  --shadow-sm: 0 1px 2px rgba(22, 33, 62, 0.06);
+  --shadow-md: 0 8px 24px rgba(22, 33, 62, 0.08);
+  --shadow-lg: 0 24px 60px rgba(22, 33, 62, 0.12);
+
+  /* ---- Layout ---------------------------------------------------------- */
+  --maxw-page: 1120px;
+  --maxw-prose: 62ch;
+
+  /* ---- Motion (Static Refinement — subtle, fast, restrained) ---------- */
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --dur-fast: 140ms;
+  --dur-base: 220ms;
+}

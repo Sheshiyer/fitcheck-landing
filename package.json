@@ -1,0 +1,11 @@
+{
+  "name": "fitcheck-landing",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Fitcheck — AI virtual try-on launch landing page (zero-dep static build)",
+  "scripts": {
+    "build": "node build.mjs",
+    "test": "node build.mjs && node --test"
+  }
+}
