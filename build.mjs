@@ -396,11 +396,30 @@ function footer() {
 }
 
 // ---- Top-level assembly ----------------------------------------------------
+function tryonGallery() {
+  return `
+  <section id="gallery" class="gallery">
+    <div class="container">
+      <div class="section-head">
+        <span class="kicker">Real bodies, real fit</span>
+        <h2 class="section-title">One garment, every body</h2>
+        <p class="lead">Fitcheck renders your best-sellers on diverse shoppers — so every customer can picture the fit on a body like theirs before they buy.</p>
+      </div>
+      <div class="gallery-grid">
+        <figure><img src="/assets/example-1.webp" width="896" height="1200" alt="A plus-size shopper modeling a midi dress — a Fitcheck try-on render" loading="lazy" decoding="async" /></figure>
+        <figure><img src="/assets/example-2.webp" width="896" height="1200" alt="A shopper modeling a knit sweater and trousers — a Fitcheck try-on render" loading="lazy" decoding="async" /></figure>
+        <figure><img src="/assets/example-3.webp" width="896" height="1200" alt="A shopper modeling activewear — a Fitcheck try-on render" loading="lazy" decoding="async" /></figure>
+      </div>
+    </div>
+  </section>`;
+}
+
 export function buildLanding() {
   const sections = [
     heroSection(),
     problemSection(),
     solutionSection(),
+    tryonGallery(),
     howSection(),
     pricingSection(),
     faqSection(),

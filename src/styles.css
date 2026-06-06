@@ -238,6 +238,26 @@ section { padding-block: var(--space-9); }
 }
 @media (max-width: 880px) { .hero-visual { max-width: 420px; margin-inline: auto; } }
 
+/* ---- Try-on gallery ---------------------------------------------------- */
+.gallery { background: var(--color-navy); color: var(--color-on-dark); }
+.gallery .kicker { color: var(--color-action); } /* bright orange — AA on navy */
+.gallery .lead { color: var(--color-on-dark-soft); }
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-5);
+  margin-top: var(--space-6);
+}
+.gallery-grid figure {
+  margin: 0;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--color-border-dark);
+  box-shadow: var(--shadow-md);
+}
+.gallery-grid img { display: block; width: 100%; height: auto; aspect-ratio: 896 / 1200; object-fit: cover; }
+@media (max-width: 760px) { .gallery-grid { grid-template-columns: 1fr; max-width: 380px; margin-inline: auto; } }
+
 /* ---- Problem ------------------------------------------------------------ */
 .cards {
   display: grid;
