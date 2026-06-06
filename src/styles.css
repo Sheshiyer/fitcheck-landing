@@ -213,31 +213,30 @@ section { padding-block: var(--space-9); }
 
 /* Hero visual — pure CSS, zero assets, "render preview" motif */
 .hero-visual {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-3);
-}
-.swatch {
-  aspect-ratio: 3 / 4;
-  border-radius: var(--radius-md);
-  border: 1px solid var(--color-border-dark);
-  background: linear-gradient(160deg, rgba(247,247,251,0.06), rgba(247,247,251,0.02));
+  margin: 0;
   position: relative;
+  border-radius: var(--radius-lg);
   overflow: hidden;
+  border: 1px solid var(--color-border-dark);
+  box-shadow: var(--shadow-lg);
+  background: linear-gradient(160deg, rgba(247,247,251,0.06), rgba(247,247,251,0.02));
 }
-.swatch::after {
+.hero-visual img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 896 / 1200;
+  object-fit: cover;
+}
+/* a subtle warm glow ties the render to the brand */
+.hero-visual::after {
   content: "";
   position: absolute;
-  inset: auto var(--space-3) var(--space-3) var(--space-3);
-  height: 6px;
-  border-radius: var(--radius-pill);
-  background: var(--color-action);
-  opacity: 0.85;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(120% 80% at 90% 0%, rgba(255, 107, 53, 0.10), transparent 55%);
 }
-.swatch:nth-child(3n)::after { width: 60%; }
-.swatch:nth-child(3n+1)::after { width: 80%; }
-.swatch:nth-child(3n+2)::after { width: 45%; }
-@media (max-width: 880px) { .hero-visual { max-width: 420px; } }
+@media (max-width: 880px) { .hero-visual { max-width: 420px; margin-inline: auto; } }
 
 /* ---- Problem ------------------------------------------------------------ */
 .cards {

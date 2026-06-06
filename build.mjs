@@ -207,9 +207,9 @@ function heroSection() {
           </div>
           <p class="hero-reassure">${esc(HERO.reassurance)}</p>
         </div>
-        <div class="hero-visual" role="img" aria-label="Preview tiles representing try-on renders across diverse bodies">
-          ${swatches}
-        </div>
+        <figure class="hero-visual">
+          <img src="/assets/hero.webp" width="896" height="1200" alt="A shopper modeling an outfit — a Fitcheck virtual try-on render" fetchpriority="high" decoding="async" />
+        </figure>
       </div>
     </div>
   </section>`;
