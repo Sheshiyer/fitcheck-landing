@@ -20,6 +20,15 @@ const BRAND_TOKENS = read('./shared/brand-tokens.css'); // brand tokens (vendore
 const STYLES = read('./src/styles.css');
 const LEAD_JS = read('./src/lead-capture.js');
 const LOGO_DARK = read('./assets/logo-dark.svg'); // inline header logo (dark lockup)
+// how-it-works step illustrations (flat line-icons, light stroke + orange accent; read on navy)
+const STEP_ICONS = [
+  // 1 · we render your best-sellers on diverse bodies
+  `<svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="5" y="6" width="32" height="36" rx="7" stroke="#B9BCD0" stroke-width="2.5"/><circle cx="21" cy="19" r="5" fill="#FF6B35"/><path d="M12 36c0-5 4-8 9-8s9 3 9 8" stroke="#FF6B35" stroke-width="2.5" stroke-linecap="round"/><path d="M40 8l1.4 3 3 1.4-3 1.4L40 18l-1.4-3-3-1.4 3-1.4z" fill="#FF6B35"/></svg>`,
+  // 2 · the pilot widget goes live on your product page
+  `<svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="5" y="9" width="38" height="30" rx="5" stroke="#B9BCD0" stroke-width="2.5"/><path d="M5 17h38" stroke="#B9BCD0" stroke-width="2.5"/><circle cx="10.5" cy="13" r="1.3" fill="#B9BCD0"/><circle cx="15" cy="13" r="1.3" fill="#B9BCD0"/><rect x="13" y="24" width="22" height="9" rx="4.5" fill="#FF6B35"/></svg>`,
+  // 3 · shoppers try on → confidence → add to cart
+  `<svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M11 16h26l-2 24H13z" stroke="#B9BCD0" stroke-width="2.5" stroke-linejoin="round"/><path d="M18 18v-4a6 6 0 0 1 12 0v4" stroke="#B9BCD0" stroke-width="2.5" stroke-linecap="round"/><path d="M18 28l4 4 8-9" stroke="#FF6B35" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+];
 
 // ---- Grounded copy (mirrors content/copy.md; no invented claims) -----------
 const BRAND = 'Fitcheck';
@@ -260,6 +269,7 @@ function howSection() {
   const steps = HOW.steps
     .map((s, i) => `
         <article class="step">
+          <span class="step-icon" aria-hidden="true">${STEP_ICONS[i] || ''}</span>
           <span class="step-num" aria-hidden="true">${i + 1}</span>
           <h3>${esc(s.t)}</h3>
           <p>${esc(s.p)}</p>

@@ -321,6 +321,8 @@ section { padding-block: var(--space-9); }
   padding: var(--space-6);
   background: rgba(247, 247, 251, 0.03);
 }
+.step-icon { display: block; margin-bottom: var(--space-4); }
+.step-icon svg { width: 44px; height: 44px; display: block; }
 .step-num {
   display: inline-grid;
   place-items: center;
