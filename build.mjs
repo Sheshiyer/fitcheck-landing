@@ -405,20 +405,70 @@ function footer() {
   </footer>`;
 }
 
-// ---- Top-level assembly ----------------------------------------------------
-function tryonGallery() {
+const EXAMPLES = {
+  kicker: 'See it in action',
+  heading: 'Product on the right. Real shopper on the left.',
+  lead: 'Every Fitcheck render pairs your product with a real body — so shoppers stop guessing and start buying.',
+  items: [
+    {
+      personImage: '/assets/example-1.webp',
+      personAlt: 'A plus-size shopper wearing an olive midi dress — a Fitcheck try-on render',
+      productName: 'Olive Midi Dress',
+      productColor: 'Olive',
+      productSize: 'L',
+      productPrice: '$128'
+    },
+    {
+      personImage: '/assets/example-2.webp',
+      personAlt: 'A shopper wearing a charcoal crew-neck sweater — a Fitcheck try-on render',
+      productName: 'Charcoal Crew Sweater',
+      productColor: 'Charcoal',
+      productSize: 'M',
+      productPrice: '$89'
+    },
+    {
+      personImage: '/assets/example-3.webp',
+      personAlt: 'A shopper wearing a black tank top and leggings — a Fitcheck try-on render',
+      productName: 'Black Ribbed Tank',
+      productColor: 'Black',
+      productSize: 'S',
+      productPrice: '$42'
+    }
+  ]
+};
+
+function examplesSection() {
+  const cards = EXAMPLES.items.map((item, i) => `
+    <article class="example-card" aria-label="${esc(item.productName)} example">
+      <div class="example-person">
+        <span class="example-label">Shoppers see this</span>
+        <img src="${esc(item.personImage)}" width="896" height="1200" alt="${esc(item.personAlt)}" loading="lazy" decoding="async" />
+      </div>
+      <div class="example-product">
+        <span class="example-label">Your product</span>
+        <div class="product-card">
+          <div class="product-thumb"><img src="${esc(item.personImage)}" width="200" height="267" alt="" loading="lazy" decoding="async" /></div>
+          <div class="product-info">
+            <h3>${esc(item.productName)}</h3>
+            <p class="product-meta">${esc(item.productColor)} · Size ${esc(item.productSize)}</p>
+            <p class="product-price">${esc(item.productPrice)}</p>
+            <span class="product-cta">Try It On Me</span>
+          </div>
+        </div>
+      </div>
+    </article>
+  `).join('');
+
   return `
-  <section id="gallery" class="gallery">
+  <section id="examples" class="examples">
     <div class="container">
       <div class="section-head">
-        <span class="kicker">Real bodies, real fit</span>
-        <h2 class="section-title">One garment, every body</h2>
-        <p class="lead">Fitcheck renders your best-sellers on diverse shoppers — so every customer can picture the fit on a body like theirs before they buy.</p>
+        <span class="kicker">${esc(EXAMPLES.kicker)}</span>
+        <h2 class="section-title">${esc(EXAMPLES.heading)}</h2>
+        <p class="lead">${esc(EXAMPLES.lead)}</p>
       </div>
-      <div class="gallery-grid">
-        <figure><img src="/assets/example-1.webp" width="896" height="1200" alt="A plus-size shopper modeling a midi dress — a Fitcheck try-on render" loading="lazy" decoding="async" /></figure>
-        <figure><img src="/assets/example-2.webp" width="896" height="1200" alt="A shopper modeling a knit sweater and trousers — a Fitcheck try-on render" loading="lazy" decoding="async" /></figure>
-        <figure><img src="/assets/example-3.webp" width="896" height="1200" alt="A shopper modeling activewear — a Fitcheck try-on render" loading="lazy" decoding="async" /></figure>
+      <div class="examples-grid">
+        ${cards}
       </div>
     </div>
   </section>`;
@@ -429,7 +479,7 @@ export function buildLanding() {
     heroSection(),
     problemSection(),
     solutionSection(),
-    tryonGallery(),
+    examplesSection(),
     howSection(),
     pricingSection(),
     faqSection(),
