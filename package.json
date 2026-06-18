@@ -1,6 +1,6 @@
 {
   "name": "fitcheck-landing",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
   "type": "module",
   "description": "Fitcheck — AI virtual try-on launch landing page (zero-dep static build)",
