@@ -12,12 +12,20 @@ export default function Footer() {
             brands.
           </span>
         </div>
-        <a
-          href="#cta"
-          className="text-gray-900 text-sm font-medium hover:underline transition-colors"
-        >
-          Reserve your launch
-        </a>
+        <div className="flex items-center gap-4">
+          <a
+            href="/privacy"
+            className="text-gray-500 text-sm hover:text-gray-900 transition-colors"
+          >
+            Privacy Policy
+          </a>
+          <a
+            href="#cta"
+            className="text-gray-900 text-sm font-medium hover:underline transition-colors"
+          >
+            Reserve your launch
+          </a>
+        </div>
       </div>
     </footer>
   );
