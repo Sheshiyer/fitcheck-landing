@@ -15,16 +15,16 @@ const PROBLEM_CARDS = [
 
 export default function ProblemSection() {
   return (
-    <section id="problem" className="py-16 md:py-24 lg:py-32 bg-white border-t border-gray-200">
+    <section id="problem" className="py-16 md:py-24 lg:py-32 bg-[#020202] border-t border-white/10">
       <div className="max-w-6xl mx-auto px-5 md:px-8">
         <div className="max-w-[60ch] mb-10 md:mb-14">
-          <span className="text-[13px] font-medium text-gray-500">
+          <span className="text-[13px] font-medium text-[#FBFF8D]">
             The product page is where fashion sales are won or lost
           </span>
-          <h2 className="mt-3 text-3xl md:text-4xl lg:text-5xl font-normal tracking-tight leading-[1.05] text-gray-900">
+          <h2 className="mt-3 text-3xl md:text-4xl lg:text-5xl font-normal tracking-tight leading-[1.05] text-white font-serif">
             Shoppers can&rsquo;t picture the fit on their own body
           </h2>
-          <p className="mt-4 text-base md:text-lg leading-relaxed text-gray-500 max-w-[60ch]">
+          <p className="mt-4 text-base md:text-lg leading-relaxed text-white/60 max-w-[60ch]">
             A flat photo on a single model leaves most shoppers guessing.
             Guessing means hesitation, abandoned carts, and returns that quietly
             erase your margin. The options on the market each fall short:
@@ -35,12 +35,12 @@ export default function ProblemSection() {
           {PROBLEM_CARDS.map((card) => (
             <article
               key={card.title}
-              className="bg-gray-50 border border-gray-200 rounded-2xl p-8"
+              className="bg-white/5 border border-white/10 rounded-2xl p-8"
             >
-              <h3 className="text-xl font-normal tracking-tight text-gray-900 mb-2">
+              <h3 className="text-xl font-normal tracking-tight text-white mb-2">
                 {card.title}
               </h3>
-              <p className="text-gray-500 leading-relaxed">{card.desc}</p>
+              <p className="text-white/50 leading-relaxed">{card.desc}</p>
             </article>
           ))}
         </div>

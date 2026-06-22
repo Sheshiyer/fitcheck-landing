@@ -28,13 +28,13 @@ export default function FAQSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section id="faq" className="py-16 md:py-24 lg:py-32 bg-white border-t border-gray-200">
+    <section id="faq" className="py-16 md:py-24 lg:py-32 bg-[#020202] border-t border-white/10">
       <div className="max-w-6xl mx-auto px-5 md:px-8">
         <div className="max-w-[60ch] mb-10 md:mb-14">
-          <span className="text-[13px] font-medium text-gray-500">
+          <span className="text-[13px] font-medium text-[#FBFF8D]">
             Straight answers
           </span>
-          <h2 className="mt-3 text-3xl md:text-4xl lg:text-5xl font-normal tracking-tight leading-[1.05] text-gray-900">
+          <h2 className="mt-3 text-3xl md:text-4xl lg:text-5xl font-normal tracking-tight leading-[1.05] text-white font-serif">
             What founders ask before they reserve
           </h2>
         </div>
@@ -45,22 +45,22 @@ export default function FAQSection() {
             return (
               <div
                 key={item.q}
-                className="border border-gray-200 rounded-2xl bg-gray-50 overflow-hidden"
+                className="border border-white/10 rounded-2xl bg-white/5 overflow-hidden"
               >
                 <button
                   onClick={() => setOpenIndex(isOpen ? null : i)}
-                  className="flex items-center justify-between gap-4 w-full px-6 py-5 text-left text-lg font-medium text-gray-900 hover:bg-gray-100 transition-colors"
+                  className="flex items-center justify-between gap-4 w-full px-6 py-5 text-left text-lg font-medium text-white hover:bg-white/5 transition-colors"
                   aria-expanded={isOpen}
                 >
                   <span>{item.q}</span>
                   <ChevronDown
-                    className={`w-5 h-5 shrink-0 text-gray-400 transition-transform ${
+                    className={`w-5 h-5 shrink-0 text-white/40 transition-transform ${
                       isOpen ? "rotate-180" : ""
                     }`}
                   />
                 </button>
                 {isOpen && (
-                  <div className="px-6 pb-5 text-gray-500 leading-relaxed">
+                  <div className="px-6 pb-5 text-white/60 leading-relaxed">
                     {item.a}
                   </div>
                 )}

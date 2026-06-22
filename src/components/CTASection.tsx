@@ -60,19 +60,19 @@ export default function CTASection() {
   return (
     <section
       id="cta"
-      className="py-16 md:py-24 lg:py-32 bg-gray-50 border-t border-gray-200"
+      className="py-16 md:py-24 lg:py-32 bg-[#0A0A0A] border-t border-white/10"
     >
       <div className="max-w-6xl mx-auto px-5 md:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
           {/* Copy */}
           <div>
-            <span className="text-[13px] font-medium text-gray-500">
+            <span className="text-[13px] font-medium text-[#FBFF8D]">
               Your launch slot is one form away
             </span>
-            <h2 className="mt-3 text-3xl md:text-4xl lg:text-5xl font-normal tracking-tight leading-[1.05] text-gray-900">
+            <h2 className="mt-3 text-3xl md:text-4xl lg:text-5xl font-normal tracking-tight leading-[1.05] text-white font-serif">
               Reserve your Fitcheck launch
             </h2>
-            <p className="mt-4 text-base md:text-lg leading-relaxed text-gray-500 max-w-[60ch]">
+            <p className="mt-4 text-base md:text-lg leading-relaxed text-white/60 max-w-[60ch]">
               Lock in your 48-hour launch with a $1,000 refundable reservation —
               credited toward your Pilot once you approve the demo renders. Tell
               us where to send the renders.
@@ -80,16 +80,16 @@ export default function CTASection() {
           </div>
 
           {/* Form */}
-          <div className="bg-white text-gray-900 rounded-2xl p-8 md:p-10 border border-gray-200 shadow-sm">
+          <div className="bg-white/5 text-white rounded-2xl p-8 md:p-10 border border-white/10 shadow-sm">
             {status === "success" ? (
-              <div className="bg-gray-50 border border-gray-200 rounded-2xl p-6 text-center">
-                <p className="font-medium text-lg text-gray-900">Reservation request received.</p>
-                <p className="mt-2 text-gray-500">
+              <div className="bg-[#FBFF8D]/10 border border-[#FBFF8D]/30 rounded-2xl p-6 text-center">
+                <p className="font-medium text-lg text-white">Reservation request received.</p>
+                <p className="mt-2 text-white/60">
                   We&rsquo;ll email your demo-render details within one business day.
                 </p>
                 <button
                   onClick={() => setStatus("idle")}
-                  className="mt-4 text-sm text-gray-900 font-medium hover:underline"
+                  className="mt-4 text-sm text-[#FBFF8D] font-medium hover:underline"
                 >
                   Submit another
                 </button>
@@ -97,7 +97,7 @@ export default function CTASection() {
             ) : (
               <form onSubmit={handleSubmit} noValidate className="space-y-5">
                 <div>
-                  <label htmlFor="lead-name" className="block text-sm font-medium text-gray-700 mb-1.5">
+                  <label htmlFor="lead-name" className="block text-sm font-medium text-white/70 mb-1.5">
                     Your name
                   </label>
                   <input
@@ -107,12 +107,12 @@ export default function CTASection() {
                     autoComplete="name"
                     required
                     aria-invalid={!!errors.name}
-                    className="w-full px-4 py-3 border border-gray-200 rounded-xl bg-gray-50 text-gray-900 placeholder-gray-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-900 focus-visible:border-gray-900"
+                    className="w-full px-4 py-3 border border-white/10 rounded-xl bg-white/5 text-white placeholder-white/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FBFF8D] focus-visible:border-[#FBFF8D]"
                   />
                   {errors.name && <p className="mt-1 text-sm text-red-600">{errors.name}</p>}
                 </div>
                 <div>
-                  <label htmlFor="lead-email" className="block text-sm font-medium text-gray-700 mb-1.5">
+                  <label htmlFor="lead-email" className="block text-sm font-medium text-white/70 mb-1.5">
                     Work email
                   </label>
                   <input
@@ -123,12 +123,12 @@ export default function CTASection() {
                     inputMode="email"
                     required
                     aria-invalid={!!errors.email}
-                    className="w-full px-4 py-3 border border-gray-200 rounded-xl bg-gray-50 text-gray-900 placeholder-gray-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-900 focus-visible:border-gray-900"
+                    className="w-full px-4 py-3 border border-white/10 rounded-xl bg-white/5 text-white placeholder-white/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FBFF8D] focus-visible:border-[#FBFF8D]"
                   />
                   {errors.email && <p className="mt-1 text-sm text-red-600">{errors.email}</p>}
                 </div>
                 <div>
-                  <label htmlFor="lead-store" className="block text-sm font-medium text-gray-700 mb-1.5">
+                  <label htmlFor="lead-store" className="block text-sm font-medium text-white/70 mb-1.5">
                     Shopify store URL
                   </label>
                   <input
@@ -140,18 +140,18 @@ export default function CTASection() {
                     inputMode="url"
                     required
                     aria-invalid={!!errors.store}
-                    className="w-full px-4 py-3 border border-gray-200 rounded-xl bg-gray-50 text-gray-900 placeholder-gray-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-900 focus-visible:border-gray-900"
+                    className="w-full px-4 py-3 border border-white/10 rounded-xl bg-white/5 text-white placeholder-white/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FBFF8D] focus-visible:border-[#FBFF8D]"
                   />
                   {errors.store && <p className="mt-1 text-sm text-red-600">{errors.store}</p>}
                 </div>
                 <button
                   type="submit"
                   disabled={status === "submitting"}
-                  className="w-full bg-gray-900 text-white text-sm font-medium py-3.5 rounded-full hover:bg-gray-800 hover:shadow-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-full bg-[#FBFF8D] text-[#020202] text-sm font-bold py-3.5 rounded-full hover:bg-[#f0f47a] hover:shadow-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {status === "submitting" ? "Reserving\u2026" : "Reserve your launch \u2014 $1,000 refundable"}
                 </button>
-                <p className="text-center text-sm text-gray-400">
+                <p className="text-center text-sm text-white/30">
                   Refundable until you approve the demo renders. We&rsquo;ll reply
                   within one business day.
                 </p>
