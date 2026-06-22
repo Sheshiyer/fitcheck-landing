@@ -1,10 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital,wght@0,400;1,400&family=Manrope:wght@200;300;400;500;600;700;800&display=swap');
 @import "tailwindcss";
 
 @theme {
-  --font-sans: "Nimbus Sans TW01", "IBM Plex Sans", "Helvetica Neue", Helvetica,
-    Arial, sans-serif;
-  --color-accent: #ff6b35;
-  --color-accent-hover: #e85a26;
+  --font-serif: "Instrument Serif", serif;
+  --font-sans: "Manrope", sans-serif;
+  --color-accent: #FBFF8D;
 }
 
 html {

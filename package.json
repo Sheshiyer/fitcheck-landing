@@ -27,6 +27,7 @@
     "@aws-sdk/client-dynamodb": "^3.750.0",
     "@aws-sdk/lib-dynamodb": "^3.750.0",
     "lucide-react": "^1.20.0",
+    "motion": "^12.40.0",
     "react": "^19.2.7",
     "react-dom": "^19.2.7"
   },

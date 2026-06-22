@@ -1,12 +1,5 @@
 import { useState, useEffect } from "react";
-import Hero from "./components/Hero";
-import ProblemSection from "./components/ProblemSection";
-import SolutionSection from "./components/SolutionSection";
-import HowItWorksSection from "./components/HowItWorksSection";
-import PricingSection from "./components/PricingSection";
-import FAQSection from "./components/FAQSection";
-import CTASection from "./components/CTASection";
-import Footer from "./components/Footer";
+import CinematicLanding from "./components/CinematicLanding";
 import PrivacyPolicy from "./components/PrivacyPolicy";
 
 function useRoute() {
@@ -26,16 +19,5 @@ export default function App() {
     return <PrivacyPolicy />;
   }
 
-  return (
-    <>
-      <Hero />
-      <ProblemSection />
-      <SolutionSection />
-      <HowItWorksSection />
-      <PricingSection />
-      <FAQSection />
-      <CTASection />
-      <Footer />
-    </>
-  );
+  return <CinematicLanding />;
 }
