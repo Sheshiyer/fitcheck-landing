@@ -4,7 +4,9 @@
 @theme {
   --font-serif: "Instrument Serif", serif;
   --font-sans: "Manrope", sans-serif;
-  --color-accent: #FBFF8D;
+  --color-accent: #FF6B35;
+  --color-navy: #1A1A2E;
+  --color-navy-mid: #16213E;
 }
 
 html {

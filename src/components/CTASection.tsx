@@ -60,13 +60,13 @@ export default function CTASection() {
   return (
     <section
       id="cta"
-      className="py-16 md:py-24 lg:py-32 bg-[#0A0A0A] border-t border-white/10"
+      className="py-16 md:py-24 lg:py-32 bg-[#16213E] border-t border-white/10"
     >
       <div className="max-w-6xl mx-auto px-5 md:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
           {/* Copy */}
           <div>
-            <span className="text-[13px] font-medium text-[#FBFF8D]">
+            <span className="text-[13px] font-medium text-[#FF6B35]">
               Your launch slot is one form away
             </span>
             <h2 className="mt-3 text-3xl md:text-4xl lg:text-5xl font-normal tracking-tight leading-[1.05] text-white font-serif">
@@ -82,14 +82,14 @@ export default function CTASection() {
           {/* Form */}
           <div className="bg-white/5 text-white rounded-2xl p-8 md:p-10 border border-white/10 shadow-sm">
             {status === "success" ? (
-              <div className="bg-[#FBFF8D]/10 border border-[#FBFF8D]/30 rounded-2xl p-6 text-center">
+              <div className="bg-[#FF6B35]/10 border border-[#FF6B35]/30 rounded-2xl p-6 text-center">
                 <p className="font-medium text-lg text-white">Reservation request received.</p>
                 <p className="mt-2 text-white/60">
                   We&rsquo;ll email your demo-render details within one business day.
                 </p>
                 <button
                   onClick={() => setStatus("idle")}
-                  className="mt-4 text-sm text-[#FBFF8D] font-medium hover:underline"
+                  className="mt-4 text-sm text-[#FF6B35] font-medium hover:underline"
                 >
                   Submit another
                 </button>
@@ -107,7 +107,7 @@ export default function CTASection() {
                     autoComplete="name"
                     required
                     aria-invalid={!!errors.name}
-                    className="w-full px-4 py-3 border border-white/10 rounded-xl bg-white/5 text-white placeholder-white/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FBFF8D] focus-visible:border-[#FBFF8D]"
+                    className="w-full px-4 py-3 border border-white/10 rounded-xl bg-white/5 text-white placeholder-white/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF6B35] focus-visible:border-[#FF6B35]"
                   />
                   {errors.name && <p className="mt-1 text-sm text-red-600">{errors.name}</p>}
                 </div>
@@ -123,7 +123,7 @@ export default function CTASection() {
                     inputMode="email"
                     required
                     aria-invalid={!!errors.email}
-                    className="w-full px-4 py-3 border border-white/10 rounded-xl bg-white/5 text-white placeholder-white/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FBFF8D] focus-visible:border-[#FBFF8D]"
+                    className="w-full px-4 py-3 border border-white/10 rounded-xl bg-white/5 text-white placeholder-white/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF6B35] focus-visible:border-[#FF6B35]"
                   />
                   {errors.email && <p className="mt-1 text-sm text-red-600">{errors.email}</p>}
                 </div>
@@ -140,14 +140,14 @@ export default function CTASection() {
                     inputMode="url"
                     required
                     aria-invalid={!!errors.store}
-                    className="w-full px-4 py-3 border border-white/10 rounded-xl bg-white/5 text-white placeholder-white/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FBFF8D] focus-visible:border-[#FBFF8D]"
+                    className="w-full px-4 py-3 border border-white/10 rounded-xl bg-white/5 text-white placeholder-white/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF6B35] focus-visible:border-[#FF6B35]"
                   />
                   {errors.store && <p className="mt-1 text-sm text-red-600">{errors.store}</p>}
                 </div>
                 <button
                   type="submit"
                   disabled={status === "submitting"}
-                  className="w-full bg-[#FBFF8D] text-[#020202] text-sm font-bold py-3.5 rounded-full hover:bg-[#f0f47a] hover:shadow-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-full bg-[#FF6B35] text-white text-sm font-bold py-3.5 rounded-full hover:bg-[#e55a28] hover:shadow-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {status === "submitting" ? "Reserving\u2026" : "Reserve your launch \u2014 $1,000 refundable"}
                 </button>

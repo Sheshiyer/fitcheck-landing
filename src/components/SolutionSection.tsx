@@ -8,10 +8,10 @@ const POINTS = [
 
 export default function SolutionSection() {
   return (
-    <section id="solution" className="py-16 md:py-24 lg:py-32 bg-[#0A0A0A] border-t border-white/10">
+    <section id="solution" className="py-16 md:py-24 lg:py-32 bg-[#16213E] border-t border-white/10">
       <div className="max-w-6xl mx-auto px-5 md:px-8">
         <div className="max-w-[60ch] mb-10 md:mb-14">
-          <span className="text-[13px] font-medium text-[#FBFF8D]">
+          <span className="text-[13px] font-medium text-[#FF6B35]">
             One done-for-you launch, framed around revenue
           </span>
           <h2 className="mt-3 text-3xl md:text-4xl lg:text-5xl font-normal tracking-tight leading-[1.05] text-white font-serif">
@@ -29,7 +29,7 @@ export default function SolutionSection() {
         <ul className="space-y-5 max-w-2xl">
           {POINTS.map((point) => (
             <li key={point} className="flex gap-4 items-start text-lg">
-              <span className="shrink-0 w-7 h-7 rounded-full bg-[#FBFF8D] text-[#020202] flex items-center justify-center">
+              <span className="shrink-0 w-7 h-7 rounded-full bg-[#FF6B35] text-white flex items-center justify-center">
                 <Check className="w-4 h-4" strokeWidth={3} />
               </span>
               <span className="text-white/70 leading-relaxed">{point}</span>

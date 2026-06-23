@@ -1,12 +1,9 @@
 export default function Logo({ className = "w-5 h-5 sm:w-6 sm:h-6" }: { className?: string }) {
   return (
-    <svg
-      viewBox="0 0 256 256"
-      fill="currentColor"
+    <img
+      src="/assets/Photos/fitcheck-logo.svg"
+      alt="Fitcheck"
       className={className}
-      aria-label="Fitcheck"
-    >
-      <path d="M 144 256 L 27.598 256 L 144 139.598 Z M 256 207.5 L 200 256 L 200 56 L 0 56 L 48 0 L 256 0 Z M 0 204.402 L 0 112 L 92.402 112 Z" />
-    </svg>
+    />
   );
 }

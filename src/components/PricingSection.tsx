@@ -59,10 +59,10 @@ const TIERS: Tier[] = [
 
 export default function PricingSection() {
   return (
-    <section id="pricing" className="py-16 md:py-24 lg:py-32 bg-[#0A0A0A] border-t border-white/10">
+    <section id="pricing" className="py-16 md:py-24 lg:py-32 bg-[#16213E] border-t border-white/10">
       <div className="max-w-6xl mx-auto px-5 md:px-8">
         <div className="max-w-[60ch] mb-10 md:mb-14">
-          <span className="text-[13px] font-medium text-[#FBFF8D]">
+          <span className="text-[13px] font-medium text-[#FF6B35]">
             Pricing built around your launch
           </span>
           <h2 className="mt-3 text-3xl md:text-4xl lg:text-5xl font-normal tracking-tight leading-[1.05] text-white font-serif">
@@ -76,12 +76,12 @@ export default function PricingSection() {
               key={tier.name}
               className={`relative flex flex-col bg-white/5 border rounded-2xl p-8 ${
                 tier.featured
-                  ? "border-[#FBFF8D] shadow-lg shadow-[#FBFF8D]/10"
+                  ? "border-[#FF6B35] shadow-lg shadow-[#FF6B35]/10"
                   : "border-white/10"
               }`}
             >
               {tier.badge && (
-                <span className="absolute -top-3 left-8 bg-[#FBFF8D] text-[#020202] text-xs font-medium px-3 py-1 rounded-full">
+                <span className="absolute -top-3 left-8 bg-[#FF6B35] text-white text-xs font-medium px-3 py-1 rounded-full">
                   {tier.badge}
                 </span>
               )}
@@ -95,7 +95,7 @@ export default function PricingSection() {
               <ul className="space-y-3 mb-8 flex-1">
                 {tier.features.map((f) => (
                   <li key={f} className="flex gap-3 text-white">
-                    <span className="shrink-0 w-5 h-5 rounded-full bg-[#FBFF8D] text-[#020202] flex items-center justify-center">
+                    <span className="shrink-0 w-5 h-5 rounded-full bg-[#FF6B35] text-white flex items-center justify-center">
                       <Check className="w-3 h-3" strokeWidth={3} />
                     </span>
                     <span className="text-sm leading-relaxed text-white/60">{f}</span>
@@ -106,7 +106,7 @@ export default function PricingSection() {
                 href="#cta"
                 className={`block text-center text-sm font-medium px-6 py-3 rounded-full transition-all ${
                   tier.featured
-                    ? "bg-[#FBFF8D] text-[#020202] hover:bg-[#f0f47a] hover:shadow-lg"
+                    ? "bg-[#FF6B35] text-white hover:bg-[#e55a28] hover:shadow-lg"
                     : "text-white/70 ring-1 ring-white/20 hover:bg-white/10"
                 }`}
               >
@@ -118,7 +118,7 @@ export default function PricingSection() {
 
         <p className="mt-8 text-center text-white/50">
           Start with a{" "}
-          <strong className="text-[#FBFF8D] font-medium">
+          <strong className="text-[#FF6B35] font-medium">
             $1,000 refundable reservation
           </strong>{" "}
           — credited toward your Pilot once you approve the demo renders.
