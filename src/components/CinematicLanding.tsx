@@ -2,7 +2,7 @@ import { useState, useEffect, useRef, useCallback } from "react";
 import { ArrowLeft, Plus, Minus, Menu, X } from "lucide-react";
 
 /* ──────────────────────────── Assets ──────────────────────────── */
-const VIDEO_1 = "https://d8j0ntlcm91z4.cloudfront.net/user_30161RVPXOghdWIXxB44wROFX8V/hf_20260622_055122_205d22c2-1636-4b85-a8fd-18ca3d7cdde7.mp4";
+const VIDEO_1 = "https://d8j0ntlcm91z4.cloudfront.net/user_30161RVPXOghdWIXxB44wROFX8V/hf_20260623_122120_6b7d03b5-5cf8-4f53-9605-23934eb007a9.mp4";
 
 // Brand images from assets/Photos
 const IMG_HERO = "/assets/Photos/image-3.jpeg";
@@ -16,7 +16,6 @@ const HERO_VH = 700; // Slower scroll (was 500)
 const TXT_SHADOW = "0 2px 12px rgba(0,0,0,0.9), 0 0 40px rgba(0,0,0,0.6)";
 
 /* ──────────────────────────── Helpers ──────────────────────────── */
-function lerp(a: number, b: number, t: number) { return a + (b - a) * t; }
 function clamp(v: number, min: number, max: number) { return Math.min(Math.max(v, min), max); }
 
 function getStaggerStyle(progress: number, start: number, end: number) {
@@ -68,9 +67,6 @@ export default function CinematicLanding() {
 
   const targetScrollRef = useRef(0);
   const currentScrollRef = useRef(0);
-  const targetV1Ref = useRef(0);
-  const currentV1Ref = useRef(0);
-  const video1Ref = useRef<HTMLVideoElement>(null);
   const rafRef = useRef(0);
 
   const isInHero = progress < 0.98;
@@ -91,12 +87,8 @@ export default function CinematicLanding() {
   useEffect(() => {
     function tick() {
       const diff = targetScrollRef.current - currentScrollRef.current;
-      currentScrollRef.current += Math.abs(diff) < 0.0002 ? diff : diff * 0.035;
-      const p = currentScrollRef.current;
-      setProgress(p);
-      targetV1Ref.current = Math.min(p / 0.9, 1); // Scrub single video across full scroll
-      const ve1 = video1Ref.current;
-      if (ve1?.duration) { currentV1Ref.current = lerp(currentV1Ref.current, targetV1Ref.current * ve1.duration, 0.06); if (!ve1.seeking) ve1.currentTime = currentV1Ref.current; }
+      currentScrollRef.current += Math.abs(diff) < 0.0002 ? diff : diff * 0.12;
+      setProgress(currentScrollRef.current);
       rafRef.current = requestAnimationFrame(tick);
     }
     rafRef.current = requestAnimationFrame(tick);
@@ -111,11 +103,11 @@ export default function CinematicLanding() {
   return (
     <div style={{ height: `${HERO_VH}vh` }} className="relative bg-[#1A1A2E]">
 
-      {/* ─── Fixed video stage ─── */}
+      {/* ─── Fixed video stage — autoplay, no scroll scrub ─── */}
       <div className="fixed inset-0 z-0 pointer-events-none transition-opacity duration-500"
         style={{ opacity: isInHero ? 1 : 0 }}>
-        <video ref={video1Ref} src={VIDEO_1} muted playsInline preload="auto"
-          className="absolute inset-0 w-full h-full object-cover opacity-80" />
+        <video src={VIDEO_1} autoPlay muted loop playsInline preload="auto"
+          className="absolute inset-0 w-full h-full object-cover object-top opacity-80" />
         {/* Gradients */}
         <div className="absolute top-0 left-0 right-0 h-32 sm:h-44 bg-gradient-to-b from-[#1A1A2E]/95 to-transparent" />
         <div className="absolute bottom-0 left-0 right-0 h-48 sm:h-56 bg-gradient-to-t from-[#1A1A2E]/95 to-transparent" />
