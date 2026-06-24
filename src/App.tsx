@@ -9,6 +9,8 @@ import FAQSection from "./components/FAQSection";
 import CTASection from "./components/CTASection";
 import Footer from "./components/Footer";
 import PrivacyPolicy from "./components/PrivacyPolicy";
+import TermsOfService from "./components/TermsOfService";
+import SupportPage from "./components/SupportPage";
 import PhysicalPage from "./components/PhysicalPage";
 
 function useRoute() {
@@ -26,6 +28,14 @@ export default function App() {
 
   if (path === "/privacy") {
     return <PrivacyPolicy />;
+  }
+
+  if (path === "/terms") {
+    return <TermsOfService />;
+  }
+
+  if (path === "/support") {
+    return <SupportPage />;
   }
 
   if (path === "/physical") {

@@ -17,7 +17,19 @@ export default function Footer() {
             href="/privacy"
             className="text-white/50 text-sm hover:text-[#FF6B35] transition-colors"
           >
-            Privacy Policy
+            Privacy
+          </a>
+          <a
+            href="/terms"
+            className="text-white/50 text-sm hover:text-[#FF6B35] transition-colors"
+          >
+            Terms
+          </a>
+          <a
+            href="/support"
+            className="text-white/50 text-sm hover:text-[#FF6B35] transition-colors"
+          >
+            Support
           </a>
           <a
             href="#cta"
