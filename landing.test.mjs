@@ -40,9 +40,11 @@ test('pricing shows the three packages + the refundable reservation', () => {
   assert.match(html, /\$1,000/, 'refundable reservation');
 });
 
-test('lead-capture form is present (FR-011)', () => {
-  assert.match(html, /<form[\s>]/i, 'a lead form');
+test('booking form is present and opens Cal.com prefill (FR-011)', () => {
+  assert.match(html, /<form[\s>]/i, 'a booking form');
   assert.match(html, /type=["']email["']/i, 'an email field');
+  assert.match(html, /cal\.com\/thoughtseedlabs\/30min/i, 'Cal.com booking base URL');
+  assert.match(html, /Reserve your launch(?! on Cal\.com)/i, 'CTA copy without "on Cal.com"');
 });
 
 test('no placeholder / lorem / TODO leftovers in the output', () => {

@@ -81,13 +81,13 @@ open dist/index.html
 ├── 📄 build.mjs            # assembles 7 sections + inlines tokens/styles → dist/index.html
 ├── 📂 src/
 │   ├── 🎨 styles.css       # landing styles (consume the brand tokens)
-│   └── 📜 lead-capture.js  # progressive-enhancement reservation form
+│   └── ⚛️ components/      # React app components (primary build)
 ├── 📂 shared/
 │   └── 🎨 brand-tokens.css # palette + type tokens — the source of truth
 ├── 📂 content/
 │   └── 📝 copy.md          # editable source copy for every section
 ├── 📂 api/
-│   └── ⚡ lead.js          # serverless lead-capture endpoint (acknowledges reservations)
+│   └── (removed)           # bookings are handled through Cal.com
 ├── 🧪 landing.test.mjs     # 7-check acceptance contract
 └── ⚙️ vercel.json          # build: node build.mjs → serve dist/
 ```
@@ -99,7 +99,7 @@ open dist/index.html
 graph LR
     A["🎨 brand-tokens.css"] --> B["🛠️ build.mjs"]
     C["🎨 styles.css"] --> B
-    D["📜 lead-capture.js"] --> B
+    D["⚛️ React components"] --> B
     E["📝 content/copy.md"] --> B
     B --> F["📄 dist/index.html"]
     F --> G["▲ Vercel edge"]
@@ -114,7 +114,7 @@ graph LR
 | Acceptance tests | ████████████████████ | 100% |
 | Accessibility (WCAG-AA) | ████████████████████ | 100% |
 | Build reproducibility | ████████████████████ | 100% |
-| Dependencies | ████████████████████ | 0 (zero-dep) |
+| Dependencies | ████████████████████ | minimal (React + Vite) |
 
 > **On-brand · accessible · reproducible — healthy.**
 <!-- readme-gen:end:health -->

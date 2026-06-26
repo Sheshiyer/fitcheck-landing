@@ -1,62 +1,6 @@
-import { useState, useEffect, useRef, type FormEvent } from "react";
-
-const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+import BookingForm from "./BookingForm";
 
 export default function CTASection() {
-  const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
-  const [errors, setErrors] = useState<Record<string, string>>({});
-  const storeRef = useRef<HTMLInputElement>(null);
-
-  // Listen for prefill event from hero search bar
-  useEffect(() => {
-    function onPrefill(e: Event) {
-      const url = (e as CustomEvent<string>).detail;
-      if (url && storeRef.current) {
-        storeRef.current.value = url;
-        storeRef.current.focus();
-      }
-    }
-    window.addEventListener("fitcheck:prefill-store", onPrefill);
-    return () => window.removeEventListener("fitcheck:prefill-store", onPrefill);
-  }, []);
-
-  function validate(data: { name: string; email: string; store: string }) {
-    const errs: Record<string, string> = {};
-    if (!data.name || data.name.trim().length < 2) errs.name = "Please enter your name.";
-    if (!EMAIL_RE.test(data.email)) errs.email = "Enter a valid work email.";
-    if (!data.store || data.store.trim().length < 3) errs.store = "Add your Shopify store URL.";
-    return errs;
-  }
-
-  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    const form = e.currentTarget;
-    const data = {
-      name: (form.elements.namedItem("name") as HTMLInputElement).value,
-      email: (form.elements.namedItem("email") as HTMLInputElement).value,
-      store: (form.elements.namedItem("store") as HTMLInputElement).value,
-    };
-
-    const errs = validate(data);
-    setErrors(errs);
-    if (Object.keys(errs).length > 0) return;
-
-    setStatus("submitting");
-
-    try {
-      await fetch("/api/lead", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
-      });
-    } catch {
-      // graceful — show success regardless since the backend may not be deployed yet
-    }
-
-    setStatus("success");
-    form.reset();
-  }
-
   return (
     <section
       id="cta"
@@ -67,7 +11,7 @@ export default function CTASection() {
           {/* Copy */}
           <div>
             <span className="text-[13px] font-medium text-[#FF6B35]">
-              Your launch slot is one form away
+              Your launch slot is one call away
             </span>
             <h2 className="mt-3 text-3xl md:text-4xl lg:text-5xl font-normal tracking-tight leading-[1.05] text-white font-serif">
               Reserve your Fitcheck launch
@@ -79,84 +23,9 @@ export default function CTASection() {
             </p>
           </div>
 
-          {/* Form */}
+          {/* Booking form */}
           <div className="bg-white/5 text-white rounded-2xl p-8 md:p-10 border border-white/10 shadow-sm">
-            {status === "success" ? (
-              <div className="bg-[#FF6B35]/10 border border-[#FF6B35]/30 rounded-2xl p-6 text-center">
-                <p className="font-medium text-lg text-white">Reservation request received.</p>
-                <p className="mt-2 text-white/60">
-                  We&rsquo;ll email your demo-render details within one business day.
-                </p>
-                <button
-                  onClick={() => setStatus("idle")}
-                  className="mt-4 text-sm text-[#FF6B35] font-medium hover:underline"
-                >
-                  Submit another
-                </button>
-              </div>
-            ) : (
-              <form onSubmit={handleSubmit} noValidate className="space-y-5">
-                <div>
-                  <label htmlFor="lead-name" className="block text-sm font-medium text-white/70 mb-1.5">
-                    Your name
-                  </label>
-                  <input
-                    id="lead-name"
-                    name="name"
-                    type="text"
-                    autoComplete="name"
-                    required
-                    aria-invalid={!!errors.name}
-                    className="w-full px-4 py-3 border border-white/10 rounded-xl bg-white/5 text-white placeholder-white/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF6B35] focus-visible:border-[#FF6B35]"
-                  />
-                  {errors.name && <p className="mt-1 text-sm text-red-600">{errors.name}</p>}
-                </div>
-                <div>
-                  <label htmlFor="lead-email" className="block text-sm font-medium text-white/70 mb-1.5">
-                    Work email
-                  </label>
-                  <input
-                    id="lead-email"
-                    name="email"
-                    type="email"
-                    autoComplete="email"
-                    inputMode="email"
-                    required
-                    aria-invalid={!!errors.email}
-                    className="w-full px-4 py-3 border border-white/10 rounded-xl bg-white/5 text-white placeholder-white/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF6B35] focus-visible:border-[#FF6B35]"
-                  />
-                  {errors.email && <p className="mt-1 text-sm text-red-600">{errors.email}</p>}
-                </div>
-                <div>
-                  <label htmlFor="lead-store" className="block text-sm font-medium text-white/70 mb-1.5">
-                    Shopify store URL
-                  </label>
-                  <input
-                    ref={storeRef}
-                    id="lead-store"
-                    name="store"
-                    type="url"
-                    autoComplete="url"
-                    inputMode="url"
-                    required
-                    aria-invalid={!!errors.store}
-                    className="w-full px-4 py-3 border border-white/10 rounded-xl bg-white/5 text-white placeholder-white/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF6B35] focus-visible:border-[#FF6B35]"
-                  />
-                  {errors.store && <p className="mt-1 text-sm text-red-600">{errors.store}</p>}
-                </div>
-                <button
-                  type="submit"
-                  disabled={status === "submitting"}
-                  className="w-full bg-[#FF6B35] text-white text-sm font-bold py-3.5 rounded-full hover:bg-[#e55a28] hover:shadow-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed"
-                >
-                  {status === "submitting" ? "Reserving\u2026" : "Reserve your launch \u2014 $1,000 refundable"}
-                </button>
-                <p className="text-center text-sm text-white/30">
-                  Refundable until you approve the demo renders. We&rsquo;ll reply
-                  within one business day.
-                </p>
-              </form>
-            )}
+            <BookingForm />
           </div>
         </div>
       </div>

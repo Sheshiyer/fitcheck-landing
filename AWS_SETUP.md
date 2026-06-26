@@ -1,63 +1,28 @@
-# AWS lead storage setup
+# AWS lead storage (deprecated)
 
-The landing-page lead capture endpoint (`api/lead.js`) can persist submissions to **Amazon DynamoDB**. When AWS credentials/table are not configured it falls back to `/tmp/fitcheck-leads/leads.json` so local development keeps working.
+The landing page no longer captures leads through `api/lead.js` or stores them in DynamoDB. All booking/demo requests are now handled through Cal.com:
 
-## 1. Create the DynamoDB table
+**https://cal.com/thoughtseedlabs/30min**
+
+The AWS SDK dependencies, the `api/lead.js` endpoint, and the client-side lead-capture form have been removed from this repository.
+
+## Delete the old DynamoDB table
+
+If you previously created a `fitcheck-leads` DynamoDB table, delete it to avoid ongoing AWS charges:
 
 ```bash
-aws dynamodb create-table \
+aws dynamodb delete-table \
   --table-name fitcheck-leads \
-  --attribute-definitions AttributeName=id,AttributeType=S \
-  --key-schema AttributeName=id,KeyType=HASH \
-  --billing-mode PAY_PER_REQUEST \
   --region us-east-1
 ```
 
-The partition key must be named `id` (string).
+You can also delete it from the AWS Console under **DynamoDB → Tables → fitcheck-leads → Delete**.
 
-## 2. Configure environment variables
+## Removed environment variables
 
-Copy `.env.example` to `.env` and fill in your AWS credentials:
+The following variables are no longer used and can be removed from `.env` and Vercel project settings:
 
-```bash
-AWS_REGION=us-east-1
-AWS_ACCESS_KEY_ID=AKIA...
-AWS_SECRET_ACCESS_KEY=...
-DYNAMODB_TABLE=fitcheck-leads
-```
-
-On Vercel, add these in **Project Settings → Environment Variables**.
-
-## 3. IAM permissions
-
-The AWS user/role needs only these DynamoDB actions on the table:
-
-```json
-{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Effect": "Allow",
-      "Action": [
-        "dynamodb:GetItem",
-        "dynamodb:PutItem"
-      ],
-      "Resource": "arn:aws:dynamodb:*:*:table/fitcheck-leads"
-    }
-  ]
-}
-```
-
-## 4. Install dependencies
-
-The AWS SDK packages are already listed in `package.json`:
-
-```bash
-npm install
-```
-
-## 5. Behavior
-
-- If `DYNAMODB_TABLE` and `AWS_REGION` are set, leads are written to DynamoDB.
-- Duplicate emails are prevented via a `GetItem` check and a `PutItem` condition.
-- If DynamoDB is unreachable or unconfigured, the endpoint falls back to the filesystem and logs a warning.
+- `AWS_REGION`
+- `AWS_ACCESS_KEY_ID`
+- `AWS_SECRET_ACCESS_KEY`
+- `DYNAMODB_TABLE`

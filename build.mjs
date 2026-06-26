@@ -1,8 +1,8 @@
 // build.mjs — assembles the Fitcheck launch landing page (zero dependencies).
 //
-// buildLanding() reads the SHARED brand tokens + local styles + lead-capture JS,
-// inlines them, assembles the 7 brand-config sections with grounded copy, and
-// returns one self-contained HTML string. Run as main → writes dist/index.html.
+// buildLanding() reads the SHARED brand tokens + local styles, inlines them,
+// assembles the 7 brand-config sections with grounded copy, and returns one
+// self-contained HTML string. Run as main → writes dist/index.html.
 //
 // Aesthetic: Modern Minimalism · Sophisticated Elegance · Static Refinement.
 // Voice: direct, confident, pragmatic, founder-to-founder. Outcomes first.
@@ -18,8 +18,59 @@ const read = (rel) => readFileSync(resolve(__dirname, rel), 'utf8');
 // ---- Sources to inline (shared tokens FIRST so the palette ships) ----------
 const BRAND_TOKENS = read('./shared/brand-tokens.css'); // brand tokens (vendored into this repo)
 const STYLES = read('./src/styles.css');
-const LEAD_JS = read('./src/lead-capture.js');
-const LOGO_DARK = read('./assets/logo-dark.svg'); // inline header logo (dark lockup)
+const LOGO_DARK = read('./public/assets/logo-dark.svg'); // inline header logo (dark lockup)
+const BOOKING_URL = 'https://cal.com/thoughtseedlabs/30min';
+
+const BOOKING_JS = `
+(function () {
+  'use strict';
+  var form = document.getElementById('lead-form');
+  if (!form) return;
+  var status = document.getElementById('lead-status');
+  var EMAIL_RE = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/;
+
+  function setError(name, message) {
+    var err = document.getElementById('err-' + name);
+    var input = form.querySelector('[name="' + name + '"]');
+    if (message) {
+      if (input) input.setAttribute('aria-invalid', 'true');
+      if (err) err.textContent = message;
+    } else {
+      if (input) input.removeAttribute('aria-invalid');
+      if (err) err.textContent = '';
+    }
+  }
+
+  function validate(data) {
+    var ok = true;
+    if (!data.name || data.name.trim().length < 2) { setError('name', 'Please enter your name.'); ok = false; }
+    else { setError('name', ''); }
+    if (!EMAIL_RE.test(data.email || '')) { setError('email', 'Enter a valid work email.'); ok = false; }
+    else { setError('email', ''); }
+    if (!data.store || data.store.trim().length < 3) { setError('store', 'Add your Shopify store URL.'); ok = false; }
+    else { setError('store', ''); }
+    return ok;
+  }
+
+  form.addEventListener('submit', function (event) {
+    event.preventDefault();
+    var data = {
+      name: (form.elements.name && form.elements.name.value || '').trim(),
+      email: (form.elements.email && form.elements.email.value || '').trim(),
+      store: (form.elements.store && form.elements.store.value || '').trim()
+    };
+    if (!validate(data)) return;
+
+    var params = new URLSearchParams();
+    params.set('name', data.name);
+    params.set('email', data.email);
+    params.set('Shopify-store-URL', data.store);
+
+    window.open('${BOOKING_URL}?' + params.toString(), '_blank', 'noopener,noreferrer');
+    form.reset();
+  });
+})();
+`;
 // how-it-works step illustrations (flat line-icons, light stroke + orange accent; read on navy)
 const STEP_ICONS = [
   // 1 · we render your best-sellers on diverse bodies
@@ -176,17 +227,16 @@ const FAQ = {
 };
 
 const CTA = {
-  kicker: 'Your launch slot is one form away',
+  kicker: 'Your launch slot is one call away',
   heading: 'Reserve your Fitcheck launch',
   body:
-    "Lock in your 48-hour launch with a $1,000 refundable reservation — credited toward your Pilot once you approve the demo renders. Tell us where to send the renders.",
+    "Lock in your 48-hour launch with a $1,000 refundable reservation — credited toward your Pilot once you approve the demo renders. Book a 30-minute strategy call.",
   form: {
     nameLabel: 'Your name',
     emailLabel: 'Work email',
     storeLabel: 'Shopify store URL',
-    submit: 'Reserve your launch — $1,000 refundable',
-    fineprint:
-      "Refundable until you approve the demo renders. We'll reply within one business day."
+    submit: 'Reserve your launch',
+    fineprint: 'Refundable until you approve the demo renders.'
   }
 };
 
@@ -355,8 +405,7 @@ function ctaSection() {
           <p class="lead">${esc(CTA.body)}</p>
         </div>
         <div class="lead-card">
-          <div id="lead-status" class="form-status" role="status" aria-live="polite" hidden></div>
-          <form id="lead-form" class="lead-form" action="/api/lead" method="post" novalidate>
+          <form id="lead-form" class="lead-form" novalidate>
             <div class="field">
               <label for="lead-name">${esc(f.nameLabel)}</label>
               <input id="lead-name" name="name" type="text" autocomplete="name"
@@ -522,7 +571,7 @@ ${sections}
   </main>
 ${footer()}
   <script>
-${LEAD_JS}
+${BOOKING_JS}
   </script>
 </body>
 </html>
@@ -539,6 +588,6 @@ if (isMain) {
   mkdirSync(outDir, { recursive: true });
   const outFile = resolve(outDir, 'index.html');
   writeFileSync(outFile, html, 'utf8');
-  cpSync(resolve(__dirname, 'assets'), resolve(outDir, 'assets'), { recursive: true }); // logo · favicons · og.png → dist/assets/
+  cpSync(resolve(__dirname, 'public/assets'), resolve(outDir, 'assets'), { recursive: true }); // logo · favicons · og.png → dist/assets/
   console.log(`[build] wrote ${outFile} (${html.length.toLocaleString()} bytes)`);
 }

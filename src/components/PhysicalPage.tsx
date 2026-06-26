@@ -1,4 +1,5 @@
 import { ArrowLeft } from "lucide-react";
+import BookingForm from "./BookingForm";
 
 const VIDEO_KIOSK = "https://d8j0ntlcm91z4.cloudfront.net/user_30161RVPXOghdWIXxB44wROFX8V/hf_20260622_060051_9bec51e3-d56a-4d56-9998-0eeff691c9d0.mp4";
 const IMG_KIOSK = "/assets/Photos/image-3.jpeg";
@@ -39,13 +40,13 @@ export default function PhysicalPage() {
       </header>
 
       {/* ─── Hero ─── */}
-      <section className="relative overflow-hidden bg-[#1A1A2E]">
+      <section className="relative min-h-screen overflow-hidden bg-[#1A1A2E] flex items-center">
         <div className="absolute inset-0">
           <video src={VIDEO_KIOSK} autoPlay muted loop playsInline
             className="w-full h-full object-cover opacity-50" />
           <div className="absolute inset-0 bg-gradient-to-r from-[#1A1A2E] via-[#1A1A2E]/80 to-transparent" />
         </div>
-        <div className="relative max-w-7xl mx-auto px-5 md:px-10 py-24 sm:py-32 lg:py-40">
+        <div className="relative max-w-7xl mx-auto px-5 md:px-10 py-24 sm:py-32 lg:py-40 w-full">
           <div className="max-w-xl">
             <span className="text-[#FF6B35] text-[11px] uppercase tracking-[0.2em] font-semibold">In-Store Hardware</span>
             <h1 className="mt-4 text-white font-serif text-4xl sm:text-5xl lg:text-6xl leading-[1.05]">
@@ -155,31 +156,11 @@ export default function PhysicalPage() {
           <span className="text-[#FF6B35] text-[11px] uppercase tracking-[0.2em] font-semibold">Get Started</span>
           <h2 className="mt-3 font-serif text-3xl sm:text-4xl text-white">Request a Kiosk Demo</h2>
           <p className="mt-4 text-white/70 text-sm leading-relaxed max-w-md mx-auto">
-            Custom pricing based on your retail format. We'll set up a pilot in your space and show you the ROI within 30 days.
+            Custom pricing based on your retail format. Book a 30-minute call and we'll set up a pilot in your space.
           </p>
-          <form className="mt-8 space-y-4 max-w-md mx-auto text-left" onSubmit={(e) => {
-            e.preventDefault();
-            const form = e.target as HTMLFormElement;
-            const data = new FormData(form);
-            fetch("/api/lead", {
-              method: "POST",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify({ name: data.get("name"), email: data.get("email"), company: data.get("company"), product: "physical-kiosk" }),
-            });
-            form.reset();
-            alert("Thanks! We'll be in touch within 24 hours.");
-          }}>
-            <input name="name" type="text" required placeholder="Your name"
-              className="w-full h-12 px-4 bg-white/10 border border-white/10 rounded-lg text-white text-[13px] placeholder:text-white/40 focus:border-[#FF6B35] focus:outline-none transition-colors" />
-            <input name="email" type="email" required placeholder="Work email"
-              className="w-full h-12 px-4 bg-white/10 border border-white/10 rounded-lg text-white text-[13px] placeholder:text-white/40 focus:border-[#FF6B35] focus:outline-none transition-colors" />
-            <input name="company" type="text" placeholder="Company / Store name"
-              className="w-full h-12 px-4 bg-white/10 border border-white/10 rounded-lg text-white text-[13px] placeholder:text-white/40 focus:border-[#FF6B35] focus:outline-none transition-colors" />
-            <button type="submit"
-              className="w-full h-12 bg-[#FF6B35] text-white font-bold text-[13px] rounded-lg hover:bg-[#e55a28] transition-colors">
-              Request Demo
-            </button>
-          </form>
+          <div className="mt-8 text-left">
+            <BookingForm />
+          </div>
         </div>
       </section>
 
