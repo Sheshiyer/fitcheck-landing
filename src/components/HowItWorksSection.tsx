@@ -68,6 +68,15 @@ export default function HowItWorksSection() {
             </article>
           ))}
         </div>
+
+        <div className="mt-12 md:mt-16">
+          <img
+            src="/assets/Photos/image-how-it-works.png"
+            alt="How FitCheck works: from catalog upload to live try-on widget to confident shoppers"
+            className="w-full max-w-4xl mx-auto rounded-2xl border border-white/10 bg-white/5"
+            loading="lazy"
+          />
+        </div>
       </div>
     </section>
   );
