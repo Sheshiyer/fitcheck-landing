@@ -167,7 +167,7 @@ export default function PhysicalPage() {
       {/* ─── Footer ─── */}
       <footer className="py-8 bg-[#1A1A2E] border-t border-white/5">
         <div className="max-w-7xl mx-auto px-5 md:px-10 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-white/40 text-[12px]">© 2025 Fitcheck · All rights reserved</p>
+          <p className="text-white/40 text-[12px]">© {new Date().getFullYear()} Fitcheck · All rights reserved</p>
           <div className="flex items-center gap-6 text-[12px] text-white/40">
             <a href="/" className="hover:text-[#FF6B35] transition-colors">Shopify Widget</a>
             <a href="/privacy" className="hover:text-[#FF6B35] transition-colors">Privacy</a>

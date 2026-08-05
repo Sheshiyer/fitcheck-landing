@@ -31,8 +31,8 @@ export default function SupportPage() {
                 <span className="text-gray-400 mt-0.5">&#9993;</span>
                 <span>
                   Email:{" "}
-                  <a href="mailto:support@fitcheck.ai" className="text-gray-900 font-medium underline underline-offset-2">
-                    support@fitcheck.ai
+                  <a href="mailto:support@getfitcheck.space" className="text-gray-900 font-medium underline underline-offset-2">
+                    support@getfitcheck.space
                   </a>
                 </span>
               </li>
@@ -74,8 +74,8 @@ export default function SupportPage() {
             <h2 className="text-xl font-medium text-gray-900 mb-3">Data Deletion Requests</h2>
             <p>
               To request deletion of your data, email{" "}
-              <a href="mailto:privacy@fitcheck.ai" className="text-gray-900 font-medium underline underline-offset-2">
-                privacy@fitcheck.ai
+              <a href="mailto:privacy@getfitcheck.space" className="text-gray-900 font-medium underline underline-offset-2">
+                privacy@getfitcheck.space
               </a>{" "}
               with your store URL. We will process your request within 30 days per our{" "}
               <a href="/privacy" className="text-gray-900 font-medium underline underline-offset-2">Privacy Policy</a>.

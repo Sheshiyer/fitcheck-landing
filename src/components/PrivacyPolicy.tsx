@@ -108,8 +108,8 @@ export default function PrivacyPolicy() {
             </ul>
             <p className="mt-2">
               To exercise these rights, contact us at{" "}
-              <a href="mailto:privacy@fitcheck.ai" className="text-gray-900 font-medium underline underline-offset-2">
-                privacy@fitcheck.ai
+              <a href="mailto:privacy@getfitcheck.space" className="text-gray-900 font-medium underline underline-offset-2">
+                privacy@getfitcheck.space
               </a>.
             </p>
           </section>
@@ -133,8 +133,8 @@ export default function PrivacyPolicy() {
             <h2 className="text-xl font-medium text-gray-900 mb-3">11. Contact</h2>
             <p>
               Questions about this policy? Reach us at{" "}
-              <a href="mailto:privacy@fitcheck.ai" className="text-gray-900 font-medium underline underline-offset-2">
-                privacy@fitcheck.ai
+              <a href="mailto:privacy@getfitcheck.space" className="text-gray-900 font-medium underline underline-offset-2">
+                privacy@getfitcheck.space
               </a>
             </p>
           </section>

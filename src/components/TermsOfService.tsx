@@ -104,8 +104,8 @@ export default function TermsOfService() {
             <h2 className="text-xl font-medium text-gray-900 mb-3">10. Contact</h2>
             <p>
               Questions about these terms? Contact us at{" "}
-              <a href="mailto:support@fitcheck.ai" className="text-gray-900 font-medium underline underline-offset-2">
-                support@fitcheck.ai
+              <a href="mailto:support@getfitcheck.space" className="text-gray-900 font-medium underline underline-offset-2">
+                support@getfitcheck.space
               </a>
             </p>
           </section>
