@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef, useCallback } from "react";
-import { ArrowLeft, Plus, Minus, Menu, X } from "lucide-react";
+import { ArrowLeft, Plus, Minus } from "lucide-react";
 
 /* ──────────────────────────── Assets ──────────────────────────── */
 const VIDEO_1 = "https://d8j0ntlcm91z4.cloudfront.net/user_30161RVPXOghdWIXxB44wROFX8V/hf_20260623_122120_6b7d03b5-5cf8-4f53-9605-23934eb007a9.mp4";
@@ -52,18 +52,10 @@ const SHOPIFY_PRODUCT = {
   cta: "RESERVE YOUR LAUNCH",
 };
 
-const NAV_LINKS = [
-  { label: "How It Works", href: "#how-it-works" },
-  { label: "Pricing", href: "#pricing" },
-  { label: "Fitcheck Physical", href: "/physical" },
-  { label: "FAQ", href: "#faq" },
-];
-
 /* ══════════════════════════════════════════════════════════════════════ */
 export default function CinematicLanding() {
   const [progress, setProgress] = useState(0);
   const [quantity, setQuantity] = useState(1);
-  const [mobileNav, setMobileNav] = useState(false);
 
   const targetScrollRef = useRef(0);
   const currentScrollRef = useRef(0);
@@ -101,7 +93,7 @@ export default function CinematicLanding() {
   }
 
   return (
-    <div style={{ height: `${HERO_VH}vh` }} className="relative bg-[#1A1A2E]">
+    <div id="top" style={{ height: `${HERO_VH}vh` }} className="relative bg-[#1A1A2E]">
 
       {/* ─── Fixed video stage — autoplay, no scroll scrub ─── */}
       <div className="fixed inset-0 z-0 pointer-events-none transition-opacity duration-500"
@@ -127,8 +119,8 @@ export default function CinematicLanding() {
           visibility: progress >= 0.5 || !isInHero ? "hidden" : "visible",
         }}>
 
-        {/* Header */}
-        <div className="flex justify-between items-start gap-4">
+        {/* Editorial introduction; global navigation stays available in Navbar. */}
+        <div className="flex justify-between items-start gap-4 pt-14 sm:pt-16">
           <div className="flex flex-col gap-4 sm:gap-8 shrink min-w-0" style={getStaggerStyle(progress, 0.0, 0.15)}>
             <FitcheckLogo variant="light" />
             <div className="hidden sm:block" style={{ textShadow: TXT_SHADOW }}>
@@ -141,43 +133,7 @@ export default function CinematicLanding() {
             </div>
           </div>
 
-          {/* Desktop nav */}
-          <nav className="hidden md:flex items-center gap-4 lg:gap-7 text-[13px] text-white font-medium shrink-0"
-            style={{ ...getStaggerStyle(progress, 0.03, 0.18), textShadow: TXT_SHADOW }}>
-            {NAV_LINKS.map(({ label, href }) => (
-              <a key={label} href={href}
-                className="relative hover:text-[#FF6B35] hover:scale-105 transition-all after:absolute after:left-0 after:-bottom-0.5 after:h-[1px] after:bg-[#FF6B35] after:w-0 hover:after:w-full after:transition-all">
-                {label}
-              </a>
-            ))}
-            <a href="#cta"
-              className="bg-[#FF6B35] text-white text-[12px] font-bold px-5 py-2.5 rounded-full hover:bg-[#e55a28] transition-colors shadow-lg">
-              Request Demo
-            </a>
-          </nav>
-
-          {/* Mobile hamburger */}
-          <button className="md:hidden text-white p-1 shrink-0" onClick={() => setMobileNav(!mobileNav)}>
-            {mobileNav ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
         </div>
-
-        {/* Mobile nav dropdown */}
-        {mobileNav && (
-          <div className="md:hidden absolute top-14 right-4 left-4 bg-[#1A1A2E]/90 backdrop-blur-xl rounded-2xl border border-white/10 p-5 z-40"
-            style={{ pointerEvents: "auto" }}>
-            <div className="flex flex-col gap-4">
-              {NAV_LINKS.map(({ label, href }) => (
-                <a key={label} href={href} onClick={() => setMobileNav(false)}
-                  className="text-white text-[15px] font-medium hover:text-[#FF6B35] transition-colors">{label}</a>
-              ))}
-              <a href="#cta" onClick={() => setMobileNav(false)}
-                className="bg-[#FF6B35] text-white text-[13px] font-bold px-5 py-3 rounded-full text-center hover:bg-[#e55a28] transition-colors mt-1">
-                Request Demo
-              </a>
-            </div>
-          </div>
-        )}
 
         {/* Hero content */}
         <div className="flex flex-col lg:grid lg:grid-cols-12 items-end gap-4 sm:gap-6 lg:gap-0">
