@@ -35,3 +35,10 @@ git status --short
 
 No registry, capsule, relocation, session, Paseo, provider, or deployment
 mutation has been performed by drafting this packet.
+
+## 2026-08-10 implementation checkpoint
+
+- Added a persistent Fitcheck navigation shell and direct-hash section delivery.
+- Replaced launch-tier pricing with $99 monthly / $799 yearly, including a $389 (33%) annual saving.
+- Preserved the current cinematic and local image assets; no deployment or external billing integration was performed.
+- Verified with `npm run build`, arithmetic probe, local HTTP 200 route probe, and a rendered local hero capture.
