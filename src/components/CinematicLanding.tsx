@@ -4,13 +4,8 @@ import { ArrowLeft, Plus, Minus } from "lucide-react";
 /* ──────────────────────────── Assets ──────────────────────────── */
 const VIDEO_1 = "https://d8j0ntlcm91z4.cloudfront.net/user_30161RVPXOghdWIXxB44wROFX8V/hf_20260623_122120_6b7d03b5-5cf8-4f53-9605-23934eb007a9.mp4";
 
-// Brand images from assets/Photos
-const IMG_HERO = "/assets/Photos/image-3.jpeg";
-const IMG_LIFESTYLE = "/assets/Photos/image-1.jpeg";
 const IMG_PRODUCT_CARD = "/assets/Photos/image-4.jpeg";
-const IMG_BEFORE_AFTER = "/assets/Photos/image-5.jpeg";
 const IMG_ECOMMERCE = "/assets/Photos/image-2.jpeg";
-const LOGO_IMG = "/assets/Photos/logo.jpeg";
 
 const HERO_VH = 700; // Slower scroll (was 500)
 const TXT_SHADOW = "0 2px 12px rgba(0,0,0,0.9), 0 0 40px rgba(0,0,0,0.6)";
@@ -45,11 +40,11 @@ function FitcheckLogo({ variant = "light" }: { variant?: "light" | "dark" }) {
 const SHOPIFY_PRODUCT = {
   category: "Shopify Integration",
   title: "Virtual Try-On Widget",
-  description: "One-click Shopify integration. Add an AI-powered 'Try It On' button to any product page. Shoppers upload a photo and see themselves wearing your garments — boosting confidence, conversions, and reducing returns by up to 30%.",
+  description: "Add an AI-powered Try It On button to your Shopify product pages, so shoppers can explore a garment more personally before deciding.",
   image: IMG_ECOMMERCE,
-  price: 3000,
-  priceLabel: "Pilot launch from",
-  cta: "RESERVE YOUR LAUNCH",
+  price: 99,
+  priceLabel: "Monthly membership",
+  cta: "START WITH FITCHECK",
 };
 
 /* ══════════════════════════════════════════════════════════════════════ */

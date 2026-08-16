@@ -35,7 +35,7 @@ export default function Footer() {
             href="#cta"
             className="text-[#FF6B35] text-sm font-medium hover:underline transition-colors"
           >
-            Reserve your launch
+            Explore plans
           </a>
         </div>
       </div>

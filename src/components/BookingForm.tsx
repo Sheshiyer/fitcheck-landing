@@ -104,11 +104,9 @@ export default function BookingForm() {
         type="submit"
         className="w-full bg-[#FF6B35] text-white text-sm font-bold py-3.5 rounded-full hover:bg-[#e55a28] hover:shadow-lg transition-all"
       >
-        Reserve your launch
+        Book a Fitcheck call
       </button>
-      <p className="text-center text-sm text-white/30">
-        Refundable until you approve the demo renders.
-      </p>
+      <p className="text-center text-sm text-white/30">We’ll help you choose the right Fitcheck plan.</p>
     </form>
   );
 }
