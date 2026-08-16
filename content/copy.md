@@ -12,7 +12,7 @@ around these strings. No invented metrics beyond the brand-spec ranges.
 - **subhead:** Fitcheck renders your best-sellers on real, diverse bodies so shoppers see the fit before they buy — more confidence at the product page, more add-to-carts, fewer fit-driven returns.
 - **cta_primary:** Explore Fitcheck plans
 - **cta_secondary:** Book a Fitcheck call
-- **reassurance:** Live on your store in 48 hours. No developers. No manual exports.
+- **reassurance:** Choose monthly flexibility or yearly value.
 
 ---
 

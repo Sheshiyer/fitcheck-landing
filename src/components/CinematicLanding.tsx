@@ -44,7 +44,7 @@ const SHOPIFY_PRODUCT = {
   image: IMG_ECOMMERCE,
   price: 99,
   priceLabel: "Monthly membership",
-  cta: "START WITH FITCHECK",
+  cta: "EXPLORE FITCHECK PLANS",
 };
 
 /* ══════════════════════════════════════════════════════════════════════ */
@@ -218,7 +218,7 @@ export default function CinematicLanding() {
           </div>
 
           <div className="mt-4 sm:mt-6 grid grid-cols-2 gap-2 sm:gap-3">
-            {[["One-Click Install","No code needed"],["Any Theme","All OS 2.0 themes"],["< 15s Renders","Photorealistic results"],["−30% Returns","Buy with confidence"]
+            {[["One-Click Install","No code needed"],["Any Theme","All OS 2.0 themes"],["< 15s Renders","Photorealistic results"],["Guided Setup","Help when needed"]
             ].map(([t,d]) => (
               <div key={t} className="bg-white border border-[#E5E5E2] rounded-sm p-2.5 sm:p-3">
                 <p className="text-[10px] sm:text-[11px] font-semibold text-[#1A1A2E]">{t}</p>
