@@ -89,9 +89,9 @@ const HERO = {
   eyebrow: 'Virtual try-on, done for you — built for Shopify fashion',
   subhead:
     'Fitcheck renders your best-sellers on real, diverse bodies so shoppers see the fit before they buy — more confidence at the product page, more add-to-carts, fewer fit-driven returns.',
-  ctaPrimary: 'Reserve your launch — $1,000 refundable',
-  ctaSecondary: 'Book a pilot',
-  reassurance: 'Live on your store in 48 hours. No developers. No manual exports.'
+  ctaPrimary: 'Explore Fitcheck plans',
+  ctaSecondary: 'Book a Fitcheck call',
+  reassurance: 'Choose monthly flexibility or yearly value.'
 };
 
 const PROBLEM = {
@@ -147,53 +147,34 @@ const HOW = {
 };
 
 const PRICING = {
-  kicker: 'Pricing built around your launch',
-  heading: 'Pick the launch that fits your catalog',
-  reservation:
-    'Start with a <strong>$1,000 refundable reservation</strong> — credited toward your Pilot once you approve the demo renders.',
+  kicker: 'Simple subscription pricing',
+  heading: 'Pick the plan that fits your store',
+  reservation: 'Choose the cadence that works for your team. Annual billing saves $389.',
   tiers: [
     {
-      name: 'Pilot',
-      price: '$3,000',
-      summary: 'Prove the lift on your best-sellers.',
+      name: 'Monthly',
+      price: '$99',
+      summary: 'A flexible start for Shopify fashion brands.',
       featured: false,
-      cta: 'Start a Pilot',
+      cta: 'Choose Monthly',
       features: [
-        'Personalized demo renders of your catalog',
-        'Try-on widget on selected SKUs',
-        '500 try-on credits',
-        'Basic conversion analytics',
-        '48-hour launch'
+        'AI try-on for Shopify product pages',
+        'Monthly billing',
+        'Guided setup support'
       ]
     },
     {
-      name: 'Premium',
-      price: '$7,500',
-      summary: 'Scale try-on and capture the demand.',
+      name: 'Yearly',
+      price: '$799',
+      summary: 'The full Fitcheck experience at the best annual value.',
       featured: true,
-      badge: 'Most popular',
-      cta: 'Choose Premium',
+      badge: 'Save $389',
+      cta: 'Choose Yearly',
       features: [
-        'Everything in Pilot',
-        '2,000 try-on credits',
-        'Lead capture on try-on',
-        'A/B testing',
-        'Klaviyo integration',
-        'Priority support'
-      ]
-    },
-    {
-      name: 'Enterprise',
-      price: '$10,000–$15,000',
-      summary: 'Multi-store and bespoke, with a team behind you.',
-      featured: false,
-      cta: 'Talk to us',
-      features: [
-        'Everything in Premium',
-        'Unlimited try-on credits',
-        'Multi-store support',
-        'Custom integrations',
-        'Dedicated success manager'
+        'AI try-on for Shopify product pages',
+        'Yearly billing',
+        'Guided setup support',
+        '33% less than twelve monthly payments'
       ]
     }
   ]
@@ -227,16 +208,15 @@ const FAQ = {
 };
 
 const CTA = {
-  kicker: 'Your launch slot is one call away',
-  heading: 'Reserve your Fitcheck launch',
-  body:
-    "Lock in your 48-hour launch with a $1,000 refundable reservation — credited toward your Pilot once you approve the demo renders. Book a 30-minute strategy call.",
+  kicker: 'Need help choosing?',
+  heading: 'Bring Fitcheck to your product pages',
+  body: 'Start monthly for $99 or choose yearly for $799. Book a short call if you would like help deciding how Fitcheck fits your store.',
   form: {
     nameLabel: 'Your name',
     emailLabel: 'Work email',
     storeLabel: 'Shopify store URL',
-    submit: 'Reserve your launch',
-    fineprint: 'Refundable until you approve the demo renders.'
+    submit: 'Book a Fitcheck call',
+    fineprint: 'We’ll help you choose the right Fitcheck plan.'
   }
 };
 
@@ -438,7 +418,7 @@ function topbar() {
   <header class="topbar">
     <div class="container">
       <a class="brandmark" href="#hero" aria-label="${esc(BRAND)} — home">${LOGO_DARK}</a>
-      <a class="btn btn-primary topbar-cta" href="#cta">Reserve your launch</a>
+      <a class="btn btn-primary topbar-cta" href="#cta">Explore plans</a>
     </div>
   </header>`;
 }
@@ -449,7 +429,7 @@ function footer() {
   <footer class="site-footer">
     <div class="container">
       <span>&copy; ${year} ${esc(BRAND)} — virtual try-on launch for Shopify fashion brands.</span>
-      <a href="#cta">Reserve your launch</a>
+      <a href="#cta">Explore plans</a>
     </div>
   </footer>`;
 }

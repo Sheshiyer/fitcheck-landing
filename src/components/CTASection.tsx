@@ -11,15 +11,14 @@ export default function CTASection() {
           {/* Copy */}
           <div>
             <span className="text-[13px] font-medium text-[#FF6B35]">
-              Your launch slot is one call away
+              Choose the plan that fits your store
             </span>
             <h2 className="mt-3 text-3xl md:text-4xl lg:text-5xl font-normal tracking-tight leading-[1.05] text-white font-serif">
-              Reserve your Fitcheck launch
+              Bring Fitcheck to your product pages
             </h2>
             <p className="mt-4 text-base md:text-lg leading-relaxed text-white/60 max-w-[60ch]">
-              Lock in your 48-hour launch with a $1,000 refundable reservation —
-              credited toward your Pilot once you approve the demo renders. Tell
-              us where to send the renders.
+              Start monthly for $99 or choose yearly for $799. Book a short
+              call if you would like help deciding how Fitcheck fits your store.
             </p>
           </div>
 

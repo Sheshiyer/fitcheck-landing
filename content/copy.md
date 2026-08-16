@@ -10,9 +10,9 @@ around these strings. No invented metrics beyond the brand-spec ranges.
 - **eyebrow:** Virtual try-on, done for you — built for Shopify fashion
 - **h1:** Let every shopper become your product model
 - **subhead:** Fitcheck renders your best-sellers on real, diverse bodies so shoppers see the fit before they buy — more confidence at the product page, more add-to-carts, fewer fit-driven returns.
-- **cta_primary:** Reserve your launch — $1,000 refundable
-- **cta_secondary:** Book a pilot
-- **reassurance:** Live on your store in 48 hours. No developers. No manual exports.
+- **cta_primary:** Explore Fitcheck plans
+- **cta_secondary:** Book a Fitcheck call
+- **reassurance:** Choose monthly flexibility or yearly value.
 
 ---
 
@@ -56,44 +56,20 @@ around these strings. No invented metrics beyond the brand-spec ranges.
 
 ## pricing
 
-- **kicker:** Pricing built around your launch
-- **heading:** Pick the launch that fits your catalog
-- **reservation_note:** Start with a $1,000 refundable reservation — credited toward your Pilot once you approve the demo renders.
+- **kicker:** Simple subscription pricing
+- **heading:** Pick the plan that fits your store
+- **reservation_note:** Choose monthly for $99 or yearly for $799. Annual billing saves $389.
 
-### Pilot
+### Monthly
 
-- **price:** $3,000
-- **summary:** Prove the lift on your best-sellers.
-- **features:**
-  - Personalized demo renders of your catalog
-  - Try-on widget on selected SKUs
-  - 500 try-on credits
-  - Basic conversion analytics
-  - 48-hour launch
+- **price:** $99 / month
+- **summary:** A flexible start for Shopify fashion brands.
 
-### Premium
+### Yearly
 
-- **price:** $7,500
-- **badge:** Most popular
-- **summary:** Scale try-on and capture the demand.
-- **features:**
-  - Everything in Pilot
-  - 2,000 try-on credits
-  - Lead capture on try-on
-  - A/B testing
-  - Klaviyo integration
-  - Priority support
-
-### Enterprise
-
-- **price:** $10,000–$15,000
-- **summary:** Multi-store and bespoke, with a team behind you.
-- **features:**
-  - Everything in Premium
-  - Unlimited try-on credits
-  - Multi-store support
-  - Custom integrations
-  - Dedicated success manager
+- **price:** $799 / year
+- **badge:** Save $389
+- **summary:** The full Fitcheck experience at the best annual value.
 
 ---
 
@@ -118,10 +94,10 @@ around these strings. No invented metrics beyond the brand-spec ranges.
 ## cta
 
 - **kicker:** Your launch slot is one form away
-- **heading:** Reserve your Fitcheck launch
-- **body:** Lock in your 48-hour launch with a $1,000 refundable reservation — credited toward your Pilot once you approve the demo renders. Tell us where to send the renders.
+- **heading:** Bring Fitcheck to your product pages
+- **body:** Start monthly for $99 or choose yearly for $799. Book a short call if you would like help deciding how Fitcheck fits your store.
 - **form_name_label:** Your name
 - **form_email_label:** Work email
 - **form_store_label:** Shopify store URL
-- **form_submit:** Reserve your launch — $1,000 refundable
-- **form_fineprint:** Refundable until you approve the demo renders. We'll reply within one business day.
+- **form_submit:** Book a Fitcheck call
+- **form_fineprint:** We'll help you choose the right Fitcheck plan.

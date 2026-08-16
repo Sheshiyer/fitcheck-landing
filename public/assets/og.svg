@@ -31,6 +31,6 @@
   <!-- pill -->
   <g transform="translate(80,520)">
     <rect width="300" height="56" rx="28" fill="#FF6B35"/>
-    <text x="150" y="37" font-size="24" font-weight="700" fill="#1A1A2E" text-anchor="middle">Reserve your launch</text>
+    <text x="150" y="37" font-size="24" font-weight="700" fill="#1A1A2E" text-anchor="middle">Explore Fitcheck plans</text>
   </g>
 </svg>
